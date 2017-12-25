@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 
 export default class TodoTextInput extends Component {
 	static propTypes = {
 		onSave: PropTypes.func.isRequired,
-		placeholder: PropTypes.string
+		placeholder: PropTypes.string,
+		text: PropTypes.string,
+		editing: PropTypes.bool,
+		newTodo: PropTypes.bool
 	}
 
 	state = {
-		text: ''
+		text: '' || this.props.text
 	}
 
 	handleSubmit = e => {
@@ -36,10 +40,14 @@ export default class TodoTextInput extends Component {
 	}
 
 	render() {
+		console.log(this.props)
 		return (
 			<input 
 				type="text"
-				className="new-todo"
+				className={classnames({
+					edit: this.props.editing,
+					'new-todo': this.props.newTodo
+				})}
 				placeholder={this.props.placeholder}
 				autoFocus="true"
 				value={this.state.text}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TodoItem from './TodoItem';
 
 
 class MainSection extends Component {
@@ -8,18 +9,16 @@ class MainSection extends Component {
 		actions: PropTypes.object.isRequired
 	}
 
-	renderTodo = todo => (
-		<li key={todo.id}>
-			{todo.next} {todo.id}
-		</li>
-	)
-
 	render() {
+		const { todos, actions } = this.props;
 		return (
-			<div>
-				MainSection
-				{this.props.todos.map(this.renderTodo)}
-			</div>
+			<section className="main">
+				<ul className="todo-list">
+					{ todos.map(todo => (
+						<TodoItem key={todo.id} todo={todo} { ...actions } />
+					))}
+				</ul>
+			</section>
 		);
 	}
 }
