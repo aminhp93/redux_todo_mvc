@@ -13,7 +13,7 @@ export default class TodoTextInput extends Component {
 	}
 
 	state = {
-		text: '' || this.props.text
+		text: this.props.text || ''
 	}
 
 	handleSubmit = e => {
