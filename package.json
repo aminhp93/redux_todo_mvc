@@ -12,7 +12,8 @@
     "react-router-redux": "^5.0.0-alpha.7",
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
-    "redux-devtools": "^3.4.1"
+    "redux-devtools": "^3.4.1",
+    "todomvc-app-css": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
